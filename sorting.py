@@ -16,9 +16,13 @@ class VideoPhoto:
             return True
 
 # creating folder if it doesn't exist
-def create_folder(folder_name=None):
-    if folder_name not in lsdir:
-        makedirs(folder_name)
+def create_folder(folder_name, dir):
+
+
+    if folder_name not in dir:
+        makedirs(dir + "/" + folder_name, exist_ok=True)
+    else:
+        print("PHOTO/VIDEO in directory")
 
 # our main bro
 def main():
@@ -34,12 +38,16 @@ def main():
         lsdir = listdir(sys.argv[1])
 
     video_photo = VideoPhoto()
+    create_folder("VIDEO", sys.argv[1])
+    create_folder("PHOTO", sys.argv[1])
 
     for file in range(len(lsdir)):
         if video_photo.is_video(lsdir[file]):
-            print(file, lsdir[file] , "VIDEO")
+            pass
+
 
         if video_photo.is_photo(lsdir[file]):
-            print(file, lsdir[file] , "PHOTO")
+            pass
+
 
 main()
