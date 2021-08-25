@@ -57,7 +57,6 @@ def saving_metadata(file_txt, metadata):
 def main():
 
     metadata_file = "metadata.txt"
-    exist_ok = False
 
     if len(sys.argv) > 2:
         print("Too much arguments, taking only the first...")
