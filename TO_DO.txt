@@ -1,0 +1,12 @@
+
+****
+ 1 create metadata file txt and write metadata to this file
+   if can not write to file (if some error happened)
+   write message about error then
+   display metadata
+
+ 2 get data with exiftool and
+   write it into python subprocess
+   what i could get only File name and data or something else
+
+****
