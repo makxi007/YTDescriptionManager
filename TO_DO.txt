@@ -10,3 +10,6 @@
    what i could get only File name and data or something else
 
 ****
+
+
+exiftool -TAG -FileName -FileInodeChangeDate

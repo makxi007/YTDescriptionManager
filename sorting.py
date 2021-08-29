@@ -35,13 +35,16 @@ def create_folder(folder_name, dir):
 # creating subprocess and getting metadata
 def get_metadata(path_to_file):
     info_metadata = {}
-    process = subprocess.Popen(["exiftool", path_to_file], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
+    process = subprocess.Popen(["exiftool", path_to_file], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding="utf-8", universal_newlines=True)
+
     for tag in process.stdout:
         line = tag.strip().split(":")
         info_metadata[line[0].strip()] = line[-1].strip()
 
+    # print metadata information
     for k, v in info_metadata.items():
-        print(k, ":", v)
+        print(k + ":" +  v, end="" )
+        input()
 
     return info_metadata
 
@@ -49,7 +52,12 @@ def get_metadata(path_to_file):
 def saving_metadata(file_txt, metadata):
     with open(file_txt, "a") as md:
         for k, v in metadata.items():
-            md.write(k + " : " + v + ";\n")
+            #if k == "File Name" or k == "Lens Type" k == "Date/Time Original" or k == "Create Date":
+            #print(k + ":" + v)
+        #    input()
+            pass
+                #md.write(k + " : " + v + ";\n")
+
 
         md.write("*****************\n")
 
